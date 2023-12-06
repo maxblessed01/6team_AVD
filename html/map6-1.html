@@ -2,59 +2,117 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="../css/index.css">
-  <link rel="stylesheet" href="../css/navbar2.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/map.css">
+    <link rel="stylesheet" href="../css/navbar.css">
 </head>
 
 <body>
-  <div id="super-div">
-    <div id="top">
-      <div id="logo">전체경로</div>
-    <div id="time">
-    <div id="top2">
-      <a href=""><div id="button">지도로 보기</div></a>  
+    <div id="super-div">
+        <div id="top">
+            <div id="logo" style="font-size:30px">여행 지도!</div>
+        </div>
+        <div id="top2">
+            <a href="maplist6-1.html">
+                <div id="button">목록으로 보기</div>
+            </a>
+        </div>
+        <div id="map" style="width:70%;height:300px;"></div>
+
+        <div id="nav-bar">
+            <div>
+                <a href="main.html">
+                    <img src="../image/home.png" alt="">
+                </a>
+            </div>
+            <div>
+                <a href="travel.html">
+                    <img src="../image/home.png" alt="">
+                </a>
+            </div>
+            <div>
+                <a href="search.html">
+                    <img src="../image/home.png" alt="">
+                </a>
+            </div>
+
+        </div>
     </div>
-      <a href=""><span class="time-tag">서울+경기</span></a>
-    </div>
-    <div id="time">
-        <a href=""><span class="time-tag">강원</span></a>
-    </div>
-    <div id="time">
-        <a href=""><span class="time-tag">충청</span></a>
-    </div>
-    <div id="time">
-        <a href=""><span class="time-tag">경상</span></a>
-    </div>
-    <div id="time">
-        <a href=""><span class="time-tag">전라</span></a>
-    </div>
-    <div id="time">
-        <a href=""><span class="time-tag">제주</span></a>
-    </div>
-    <div id="nav-bar">
-      <div>
-        <a href="main.html">
-          <img src="../image/home.png" alt="">
-        </a>
-      </div>
-      <div>
-        <a href="walking.html">
-          <img src="../image/home.png" alt="">
-        </a>
-      </div>
-      <div>
-        <a href="search.html">
-          <img src="../image/home.png" alt="">
-        </a>
-      </div>
-      
-    </div>
-  </div>
+    <script type="text/javascript" src="../js/sdk.js"></script>
+    <script>
+        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+            mapOption = {
+                center: new kakao.maps.LatLng(33.4577559, 126.755269), // 지도의 중심좌표
+                level: 11, // 지도의 확대 레벨
+                marker: marker
+            };
+
+        // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
 
 
+        var map = new kakao.maps.Map(mapContainer, mapOption),
+            customOverlay = new kakao.maps.CustomOverlay({}),
+            infowindow = new kakao.maps.InfoWindow({
+                removable: true
+            });; //지도 생성 및 객체 리턴
+
+        var content = '<div class ="label"><span class="left"></span><span class="center">카카오!</span><span class="right"></span></div>';
+
+        var positions = [{
+            title: '안돌오름',
+            latlng: new kakao.maps.LatLng(33.4577559, 126.755269),
+            text: "1"
+        }, {
+            title: '제주와 함께 라면',
+            latlng: new kakao.maps.LatLng(33.4782235, 126.3665625),
+            text: "2"
+        }, {
+            title: '모메든식당',
+            latlng: new kakao.maps.LatLng(33.2534214, 126.4546635),
+            text: "3"
+        }, {
+            title: '쉬다가게',
+            latlng: new kakao.maps.LatLng(33.2307211, 126.2956471)
+        }, {
+            title: '더클리프',
+            latlng: new kakao.maps.LatLng(33.2442683, 126.4150026)
+        }, {
+            title: '카페파람',
+            latlng: new kakao.maps.LatLng(33.3417993, 126.1713215)
+        }];
+
+        var linePath = [
+            new kakao.maps.LatLng(33.4577559, 126.755269),
+            new kakao.maps.LatLng(33.4782235, 126.3665625),
+            new kakao.maps.LatLng(33.2534214, 126.4546635),
+            new kakao.maps.LatLng(33.2307211, 126.2956471),
+            new kakao.maps.LatLng(33.2442683, 126.4150026),
+            new kakao.maps.LatLng(33.3417993, 126.1713215),
+        ];
+
+        var polyline = new kakao.maps.Polyline({
+            path: linePath, // 선을 구성하는 좌표배열 입니다
+            strokeWeight: 5, // 선의 두께 입니다
+            strokeColor: "purple", // 선의 색깔입니다
+            strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+            strokeStyle: 'solid' // 선의 스타일입니다
+        });
+
+        // 지도에 선을 표시합니다 
+        polyline.setMap(map);
+
+        for (var i = 0; i < positions.length; i++) {
+
+            var marker = new kakao.maps.Marker({ // 마커 생성
+                map: map, // 마커를 표시할 지도
+                position: positions[i].latlng, // 마커를 표시할 위치
+                title: positions[i].title,
+                text: positions[i].text // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시 됨
+            });
+        }
+    </script>
 </body>
 
 </html>
