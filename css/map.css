@@ -1,0 +1,132 @@
+#super-div{
+    position: relative;
+    display: flex;
+    width: 400px;
+    height: 700px;
+    border: 1px solid black;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    background-color: #FAFAFA;
+  }
+
+  #top2{
+    position: absolute;
+    right: 0;
+    top:0;
+    margin:30px;
+    border: 3px solid black;
+    font-size:24px;
+    
+}
+  
+  #logo{
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 30px; 
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  #my-loc{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 25px;
+    font-size: 10px;
+    color: gray;
+  }
+  
+  #time{
+    margin-top: 70px;
+    width: 350px;
+    height: 100px;
+    background-color: white;
+    border-radius: 15px;
+  }
+  #map{
+    margin-top: 200px;
+    width: 350px;
+    height: 100px;
+    background-color: white;
+    border-radius: 15px;
+
+  }
+  #bottom{
+    margin-top: -40px;
+  }
+  
+  #dog-option{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    width: 350px;
+    height: 420px;
+    background-color: white;
+    border-radius: 15px;
+    
+  }
+  #walkingmap{
+    display: inline-block;
+    width: 300px;
+    height: 380px;
+    background-color: lightgray;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 15px;
+    padding-top: 5px; 
+    color: white;
+    margin-top: 20px;
+  }
+  .time-text{
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: gray;
+    margin-left: 20px;
+  }
+  .button-tag{
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    background-color: lightgray;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 15px;
+    padding-top: 5px; 
+    color: white;
+    margin-top: 20px;
+  }
+  .bottom-button-tag{
+    display: inline-block;
+    width: 200px;
+    height: 30px;
+    background-color: lightgray;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 15px;
+    padding-top: 5px; 
+    color: white;
+    margin-top: 20px;
+  }
+  .time-tag{
+    display: inline-block;
+    width: 100px;
+    height: 20px;
+    background-color: lightgray;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 15px;
+    padding-top: 5px; 
+    color: white;
+    margin-top: 20px;
+    margin-left: 10px;
+  }
+  
+  
+  .puple-color{
+    color: white;
+    background-color: #B4A3FF;
+  }

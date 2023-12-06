@@ -1,0 +1,37 @@
+#super-div{
+  position: relative;
+  display: flex;
+  width: 400px;
+  height: 700px;
+  border: 1px solid black;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  background-color: #FAFAFA;
+}
+
+#logo{
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 20px; 
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#middle{
+  position: absolute;
+  margin-top: 100px;
+}
+
+#setting-img{
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 20px;
+}
+
+#dog-img{
+  border-radius: 30px;
+}
+

@@ -1,0 +1,153 @@
+#super-div {
+    position: relative;
+    display: flex;
+    width: 400px;
+    height: 700px;
+    border: 1px solid black;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    background-color: #FAFAFA;
+}
+
+#logo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 20px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#my-loc {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 35px;
+    font-size: 15px;
+    color: gray;
+}
+
+#travel {
+    margin-top: 90px;
+    width: 350px;
+    height: 100px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+#date-choose {
+    margin-top: 10px;
+    width: 350px;
+    height: 330px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+#bottom {
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+#dog-option {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    width: 350px;
+    height: 100px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.time-text {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: gray;
+    margin-left: 20px;
+}
+
+.walk-text {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: gray;
+    margin-left: 20px;
+}
+
+.button-tag {
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    background-color: lightgray;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 15px;
+    padding-top: 5px;
+    color: white;
+    margin-top: 20px;
+}
+
+.bottom-button-tag {
+    display: inline-block;
+    width: 130px;
+    height: 30px;
+    background-color: lightgray;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 15px;
+    padding-top: 5px;
+    color: white;
+    margin-top: 20px;
+}
+
+.walk-tag {
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    background-color: lightgray;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 15px;
+    padding-top: 5px;
+    color: white;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.travel-tag {
+    display: inline-block;
+    width: 300px;
+    height: 30px;
+    background-color: #E8E8E8;
+    text-align: center;
+    border-radius: 10px;
+    padding-top: 5px;
+    color: black;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.time-tag {
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    background-color: lightgray;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 15px;
+    padding-top: 5px;
+    color: white;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.puple-color {
+    color: white;
+    background-color: #B4A3FF;
+}
+
+.ts {
+    margin-top: 30px;
+}

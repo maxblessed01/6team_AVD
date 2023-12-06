@@ -1,0 +1,10 @@
+#nav-bar{
+  position: absolute;
+  bottom: 0;
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-radius: 15px;
+  margin:30px;
+}
