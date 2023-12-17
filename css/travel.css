@@ -17,8 +17,15 @@
     border: 3px solid #B4A3FF;
     background-color: #B4A3FF;
     border-radius:15px;
-    font-size:24px;
+    font-size:15px;
+    text-align:center;
     
+}
+#button {
+  width: 110px;
+  height: 25px;
+  border-radius: 15px;
+  font-size: 15px;
 }
   
   #logo{
