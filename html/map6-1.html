@@ -12,7 +12,7 @@
 <body>
     <div id="super-div">
         <div id="top">
-            <div id="logo" style="font-size:30px">여행 지도!</div>
+            <div id="logo" style="font-size:30px">여행 지도</div>
         </div>
         <div id="top2">
             <a href="maplist6-1.html">
@@ -44,8 +44,8 @@
     <script>
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
             mapOption = {
-                center: new kakao.maps.LatLng(33.4577559, 126.755269), // 지도의 중심좌표
-                level: 11, // 지도의 확대 레벨
+                center: new kakao.maps.LatLng(33.5153954, 126.5186707), // 지도의 중심좌표
+                level: 8, // 지도의 확대 레벨
                 marker: marker
             };
 
@@ -61,35 +61,38 @@
         var content = '<div class ="label"><span class="left"></span><span class="center">카카오!</span><span class="right"></span></div>';
 
         var positions = [{
-            content: '안돌오름',
-            latlng: new kakao.maps.LatLng(33.4577559, 126.755269),
+            content: '도토리키친 본점 (식당)',
+            latlng: new kakao.maps.LatLng(33.5153954, 126.5186707),
             text: "1"
         }, {
-            content: '제주와 함께 라면',
-            latlng: new kakao.maps.LatLng(33.4782235, 126.3665625),
+            content: '외도339 (카페)',
+            latlng: new kakao.maps.LatLng(33.4937115, 126.4317309),
             text: "2"
         }, {
-            content: '모메든식당',
-            latlng: new kakao.maps.LatLng(33.2534214, 126.4546635),
+            content: '캠퍼트리 리조트 (숙소)',
+            latlng: new kakao.maps.LatLng(33.4516262, 126.4474373),
             text: "3"
         }, {
-            content: '쉬다가게',
-            latlng: new kakao.maps.LatLng(33.2307211, 126.2956471)
+            content: '도토리키친 본점 (식당)',
+            latlng: new kakao.maps.LatLng(33.5153954, 126.5186707),
+            text: "4"
         }, {
-            content: '더클리프',
-            latlng: new kakao.maps.LatLng(33.2442683, 126.4150026)
+            content: '도두동 무지개해안도로 (산책길)',
+            latlng: new kakao.maps.LatLng(33.509258, 126.4719749),
+            text: "5"
         }, {
-            content: '카페파람',
-            latlng: new kakao.maps.LatLng(33.3417993, 126.1713215)
+            content: '513텐동 (식당)',
+            latlng: new kakao.maps.LatLng(33.4957783, 126.4400377),
+            text: "6"
         }];
 
         var linePath = [
-            new kakao.maps.LatLng(33.4577559, 126.755269),
-            new kakao.maps.LatLng(33.4782235, 126.3665625),
-            new kakao.maps.LatLng(33.2534214, 126.4546635),
-            new kakao.maps.LatLng(33.2307211, 126.2956471),
-            new kakao.maps.LatLng(33.2442683, 126.4150026),
-            new kakao.maps.LatLng(33.3417993, 126.1713215),
+            new kakao.maps.LatLng(33.5153954, 126.5186707),
+            new kakao.maps.LatLng(33.4937115, 126.4317309),
+            new kakao.maps.LatLng(33.4516262, 126.4474373),
+            new kakao.maps.LatLng(33.5153954, 126.5186707),
+            new kakao.maps.LatLng(33.509258, 126.4719749),
+            new kakao.maps.LatLng(33.4957783, 126.4400377)
         ];
 
         var polyline = new kakao.maps.Polyline({
@@ -103,11 +106,26 @@
         // 지도에 선을 표시합니다 
         polyline.setMap(map);
 
+        var imageSrc = ["../image/marker1.png",
+                "../image/marker2.png",
+                "../image/marker3.png",
+                "../image/marker4.png",
+                "../image/marker5.png",
+                "../image/marker6.png"
+            ], // 마커이미지의 주소입니다    
+            imageSize = new kakao.maps.Size(36, 37), // 마커이미지의 크기입니다
+            imageOption = {
+                offset: new kakao.maps.Point(13, 37)
+            }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+        // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+
         for (var i = 0; i < positions.length; i++) {
             // 마커를 생성합니다
+            var markerImage = new kakao.maps.MarkerImage(imageSrc[i], imageSize, imageOption)
             var marker = new kakao.maps.Marker({
                 map: map, // 마커를 표시할 지도
-                position: positions[i].latlng // 마커의 위치
+                position: positions[i].latlng, // 마커의 위치
+                image: markerImage
             });
 
             // 마커에 표시할 인포윈도우를 생성합니다 

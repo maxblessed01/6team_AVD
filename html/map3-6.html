@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/map.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+</head>
+
+<body>
+    <div id="super-div">
+        <div id="top">
+            <div id="logo" style="font-size:30px">여행 지도</div>
+        </div>
+        <div id="top2">
+            <a href="maplist3-6.html">
+                <div id="button">목록으로 보기</div>
+            </a>
+        </div>
+        <div id="map" style="width:85%;height:400px;"></div>
+
+        <div id="nav-bar">
+            <div>
+                <a href="main.html">
+                    <img src="../image/home.png" alt="">
+                </a>
+            </div>
+            <div>
+                <a href="travel.html">
+                    <img src="../image/travel.png" alt="">
+                </a>
+            </div>
+            <div>
+                <a href="search.html">
+                    <img src="../image/profile.png" alt="">
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="text/javascript" src="../js/sdk.js"></script>
+    <script>
+        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+            mapOption = {
+                center: new kakao.maps.LatLng(37.5469895, 127.0402181), // 지도의 중심좌표
+                level: 7, // 지도의 확대 레벨
+                marker: marker
+            };
+
+        // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+
+
+        var map = new kakao.maps.Map(mapContainer, mapOption),
+            customOverlay = new kakao.maps.CustomOverlay({}),
+            infowindow = new kakao.maps.InfoWindow({
+                removable: true
+            });; //지도 생성 및 객체 리턴
+
+        var content = '<div class ="label"><span class="left"></span><span class="center">카카오!</span><span class="right"></span></div>';
+
+        var positions = [{
+            content: 'dooop',
+            latlng: new kakao.maps.LatLng(37.5469895, 127.0402181),
+            text: "1"
+        }, {
+            content: '문화식당',
+            latlng: new kakao.maps.LatLng(37.5422651, 127.0538147),
+            text: "2"
+        }, {
+            content: 'pdbb',
+            latlng: new kakao.maps.LatLng(37.5417023, 127.0604641),
+            text: "3"
+        }, {
+            content: '꽃사슴방사장',
+            latlng: new kakao.maps.LatLng(37.5435532, 127.0343947),
+            text: "4"
+        }, {
+            content: '서울숲공원',
+            latlng: new kakao.maps.LatLng(37.5443878, 127.0374424),
+            text: "5"
+        }, {
+            content: '띠또분식',
+            latlng: new kakao.maps.LatLng(37.5443974, 127.0437865),
+            text: "3"
+        }];
+
+        var linePath = [
+            new kakao.maps.LatLng(37.5469895, 127.0402181),
+            new kakao.maps.LatLng(37.5422651, 127.0538147),
+            new kakao.maps.LatLng(37.5417023, 127.0604641),
+            new kakao.maps.LatLng(37.5435532, 127.0343947),
+            new kakao.maps.LatLng(37.5443878, 127.0374424),
+            new kakao.maps.LatLng(37.5443974, 127.0437865),
+        ];
+
+        var polyline = new kakao.maps.Polyline({
+            path: linePath, // 선을 구성하는 좌표배열 입니다
+            strokeWeight: 5, // 선의 두께 입니다
+            strokeColor: "purple", // 선의 색깔입니다
+            strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+            strokeStyle: 'solid' // 선의 스타일입니다
+        });
+
+        // 지도에 선을 표시합니다 
+        polyline.setMap(map);
+
+        var imageSrc = ["../image/marker1.png",
+                "../image/marker2.png",
+                "../image/marker3.png",
+                "../image/marker4.png",
+                "../image/marker5.png",
+                "../image/marker6.png"
+            ], // 마커이미지의 주소입니다    
+            imageSize = new kakao.maps.Size(36, 37), // 마커이미지의 크기입니다
+            imageOption = {
+                offset: new kakao.maps.Point(13, 37)
+            }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+        // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+
+        for (var i = 0; i < positions.length; i++) {
+
+            var markerImage = new kakao.maps.MarkerImage(imageSrc[i], imageSize, imageOption)
+            var marker = new kakao.maps.Marker({
+                map: map, // 마커를 표시할 지도
+                position: positions[i].latlng, // 마커의 위치
+                image: markerImage
+            });
+
+
+
+
+            // 마커에 표시할 인포윈도우를 생성합니다 
+            var infowindow = new kakao.maps.InfoWindow({
+                content: positions[i].content // 인포윈도우에 표시할 내용
+            });
+
+            // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+            // 이벤트 리스너로는 클로저를 만들어 등록합니다 
+            // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+            kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+            kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+        }
+
+
+        // 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+        function makeOverListener(map, marker, infowindow) {
+            return function() {
+                infowindow.open(map, marker);
+            };
+        }
+
+        // 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+        function makeOutListener(infowindow) {
+            return function() {
+                infowindow.close();
+            };
+        }
+    </script>
+</body>
+
+</html>

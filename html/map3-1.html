@@ -12,7 +12,7 @@
 <body>
     <div id="super-div">
         <div id="top">
-            <div id="logo" style="font-size:30px">여행 지도!</div>
+            <div id="logo" style="font-size:30px">여행 지도</div>
         </div>
         <div id="top2">
             <a href="maplist3-1.html">
@@ -91,11 +91,26 @@
         // 지도에 선을 표시합니다 
         polyline.setMap(map);
 
+        var imageSrc = ["../image/marker1.png",
+                "../image/marker2.png",
+                "../image/marker3.png",
+                "../image/marker4.png",
+                "../image/marker5.png",
+                "../image/marker6.png"
+            ], // 마커이미지의 주소입니다    
+            imageSize = new kakao.maps.Size(36, 37), // 마커이미지의 크기입니다
+            imageOption = {
+                offset: new kakao.maps.Point(13, 37)
+            }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+        // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+
         for (var i = 0; i < positions.length; i++) {
             // 마커를 생성합니다
+            var markerImage = new kakao.maps.MarkerImage(imageSrc[i], imageSize, imageOption)
             var marker = new kakao.maps.Marker({
                 map: map, // 마커를 표시할 지도
-                position: positions[i].latlng // 마커의 위치
+                position: positions[i].latlng,
+                image: markerImage // 마커의 위치
             });
 
             // 마커에 표시할 인포윈도우를 생성합니다 
