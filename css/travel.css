@@ -1,4 +1,4 @@
-#super-div{
+#super-div {
     position: relative;
     display: flex;
     width: 400px;
@@ -8,65 +8,68 @@
     align-items: center;
     border-radius: 15px;
     background-color: #FAFAFA;
-  }
-#top2{
+}
+
+#top2 {
     position: absolute;
     right: 0;
-    top:0;
-    margin:30px;
+    top: 0;
+    margin: 30px;
     border: 3px solid #B4A3FF;
     background-color: #B4A3FF;
-    border-radius:15px;
-    font-size:15px;
-    text-align:center;
-    
+    border-radius: 15px;
+    font-size: 15px;
+    text-align: center;
 }
+
 #button {
-  width: 110px;
-  height: 25px;
-  border-radius: 15px;
-  font-size: 15px;
+    width: 110px;
+    height: 25px;
+    border-radius: 15px;
+    font-size: 15px;
 }
-  
-  #logo{
+
+#logo {
     position: absolute;
     left: 0;
     top: 0;
-    margin: 20px; 
+    margin: 20px;
     font-size: 30px;
     font-weight: bold;
-  }
-  
-  #my-loc{
+}
+
+#my-loc {
     position: absolute;
     right: 0;
     top: 0;
     margin: 35px;
     font-size: 15px;
     color: gray;
-  }
-  
-  #time{
+}
+
+#time {
     margin-top: 70px;
     width: 350px;
     height: 20px;
     /* background-color: white; */
     border-radius: 15px;
     margin-left: 20px;
-  }
-  #walk-en{
+}
+
+#walk-en {
     margin-top: 10px;
     width: 350px;
     height: 200px;
     background-color: white;
     border-radius: 15px;
-  }
-  #bottom{
+}
+
+#bottom {
     margin-top: 40px;
     margin-left: 80px;
-  }
-  
-  #dog-option{
+}
+
+#dog-option {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -75,23 +78,25 @@
     height: 100px;
     background-color: white;
     border-radius: 15px;
-    
-  }
-  .time-text{
+}
+
+.time-text {
     margin-top: 10px;
     font-size: 20px;
     font-weight: bold;
     color: gray;
     margin-left: 20px;
-  }
-  .walk-text{
+}
+
+.walk-text {
     margin-top: 10px;
     font-size: 20px;
     font-weight: bold;
     color: gray;
     margin-left: 20px;
-  }
-  .button-tag{
+}
+
+.button-tag {
     display: inline-block;
     width: 100px;
     height: 40px;
@@ -99,11 +104,12 @@
     text-align: center;
     line-height: 35px;
     border-radius: 15px;
-    padding-top: 5px; 
+    padding-top: 5px;
     color: white;
     margin-top: 20px;
-  }
-  .bottom-button-tag{
+}
+
+.bottom-button-tag {
     display: inline-block;
     width: 200px;
     height: 30px;
@@ -111,11 +117,12 @@
     text-align: center;
     line-height: 30px;
     border-radius: 15px;
-    padding-top: 5px; 
+    padding-top: 5px;
     color: white;
     margin-top: 20px;
-  }
-  .walk-tag{
+}
+
+.walk-tag {
     display: inline-block;
     width: 100px;
     height: 40px;
@@ -123,12 +130,13 @@
     text-align: center;
     line-height: 35px;
     border-radius: 15px;
-    padding-top: 5px; 
+    padding-top: 5px;
     color: white;
     margin-top: 20px;
     margin-left: 10px;
-  }
-  .time-tag{
+}
+
+.time-tag {
     display: inline-block;
     width: 300px;
     height: 40px;
@@ -136,14 +144,19 @@
     text-align: center;
     line-height: 35px;
     border-radius: 15px;
-    padding-top: 5px; 
+    padding-top: 5px;
     color: white;
     margin-top: 20px;
     margin-left: 10px;
-  }
-  
-  
-  .puple-color{
+}
+
+.puple-color {
     color: white;
     background-color: #B4A3FF;
-  }
+}
+
+#dog-img {
+    border-radius: 30px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
