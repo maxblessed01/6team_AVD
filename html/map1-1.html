@@ -14,13 +14,15 @@
         <div id="top">
             <div id="logo" style="font-size:30px">여행 지도</div>
         </div>
+        <!-- //여행지도 페이지 헤드 -->
         <div id="top2">
             <a href="maplist1-1.html">
                 <div id="button">목록으로 보기</div>
             </a>
         </div>
+        <!-- // 여행코스 목록으로 보기 페이지로 이동 -->
         <div id="map" style="width:85%;height:400px;"></div>
-
+        <!-- 카카오톡 api를 통해 지도 불러오기 -->
         <div id="nav-bar">
             <div>
                 <a href="../index.html">
@@ -33,7 +35,7 @@
                 </a>
             </div>
             <div>
-                <a href="info.html">
+                <a href="search.html">
                     <img src="../image/profile.png" alt="">
                 </a>
             </div>
@@ -95,6 +97,7 @@
             new kakao.maps.LatLng(37.5443878, 127.0374424),
             new kakao.maps.LatLng(37.5443974, 127.0437865),
         ];
+
 
         var polyline = new kakao.maps.Polyline({
             path: linePath, // 선을 구성하는 좌표배열 입니다
